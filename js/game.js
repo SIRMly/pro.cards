@@ -53,6 +53,8 @@ $(function(){
                 this.pics.eq(i).attr("data-num",cardArray[i]);
             }
             console.log(cardArray);
+            $("#crashes,#crashes>div").addClass("hide");
+            $("#game-center").removeClass("hide");
             this.pics.addClass("trans");
             setTimeout(function (){
                 game.pics.removeClass("trans");
@@ -84,6 +86,7 @@ $(function(){
                             game.successNum++;
                             if(game.successNum==game.doubleNum){
                                 clearInterval(game.timer);
+                                $("#game-center").addClass("hide");
                                 $("#crashes,#restart-crash").removeClass("hide");
                                 $("#using-time").text("用时： "+Math.floor((600-game.time)/10)+"s");
                             }
@@ -105,6 +108,7 @@ $(function(){
                     game.timeBox.html(game.gameText);
                 } else{
                     clearInterval(game.timer);
+                    $("#game-center").addClass("hide");
                     $("#using-time").text("已超时！");
                     $("#crashes,#restart-crash").removeClass("hide");
                 }

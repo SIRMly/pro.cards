@@ -8,7 +8,7 @@ html{
 #crashes{width: 100%; height: 100%; position: relative;z-index: 30;}
 .crash{width: 100%; height: 100%; position: absolute; left: 0; top: 0; background-color: rgba(0,0,0,0.2)}
 #start-btn{font-size: 20px;font-weight: bold; width: 25%; text-align: center; margin: 100% auto 0;  color: #fff; line-height: 40px; background-color: #ff801b; border-radius: 5px;}
-#game-center{width: 100%; height: 100%;}
+#game-center{width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 10; }
 #title-time{height: 80px; line-height: 90px; text-align: center;}
 #main{width: calc(72vw + 8px); margin: auto;}
 .row{display: flex; margin: 4px 0;}
