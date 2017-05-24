@@ -5,7 +5,7 @@ html{
     text-size-adjust: 100%;
 }
 #container{width: 100%; height: 100%; position: absolute; left: 0; top: 0;}
-#crashes{width: 100%; height: 100%; position: relative;}
+#crashes{width: 100%; height: 100%; position: relative;z-index: 30;}
 .crash{width: 100%; height: 100%; position: absolute; left: 0; top: 0; background-color: rgba(0,0,0,0.2)}
 #start-btn{font-size: 20px;font-weight: bold; width: 25%; text-align: center; margin: 100% auto 0;  color: #fff; line-height: 40px; background-color: #ff801b; border-radius: 5px;}
 #game-center{width: 100%; height: 100%;}
@@ -27,9 +27,8 @@ html{
     -o-transform: rotateY(90deg);
     transform: rotateY(90deg);
 }
-
-
-
+#using-time{text-align: center; line-height: 50px; margin-top: 75%}
+#again-btn{display: block; font-size: 18px;font-weight: bold; width: 25%; text-align: center; margin: 20% auto 0;  color: #fff; line-height: 40px; background-color: #ff801b; border-radius: 5px;}
 
 
 
