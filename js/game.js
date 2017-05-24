@@ -58,7 +58,7 @@ $(function(){
         },
         cardClick : function (){
             console.log(this);
-            $(this).addClass("trans");
+            $(this).css("transform","rotateY(90deg)");
             if(game.eachNum == 0){
                 game.presentNum = $(this).attr("data-num");
                 game.card1 = $(this);
@@ -73,8 +73,10 @@ $(function(){
                     }
                 }else{
                     setTimeout(function (){
-                        game.card1.removeClass("trans");
-                        game.card2.removeClass("trans");
+                        game.card1.css("transform","rotateY(90deg)");
+                        game.card2.css("transform","rotateY(90deg)");
+                        //game.card1.removeClass("trans");
+                        //game.card2.removeClass("trans");
                     },200);
                 }
                 game.eachNum = 0;

@@ -20,7 +20,12 @@ html{
     -ms-transition: transform 0.2s;
     -o-transition: transform 0.2s;
     transition: transform 0.2s;}
-.trans{transform: rotateY(90deg);}
+.trans{
+    -webkit-transform: rotateY(90deg);
+    -moz-transform: rotateY(90deg);
+    -ms-transform: rotateY(90deg);
+    -o-transform: rotateY(90deg);
+    transform: rotateY(90deg);}
 
 
 
