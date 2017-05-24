@@ -3,7 +3,7 @@
  */
 
 $(function(){
-    var click = "ontouchstart" in document.documentElement ? "touchstart" : "click";
+    var click = "ontouchend" in document.documentElement ? "touchstart" : "click";
     document.ontouchmove = function (e){
         e.preventDefault();
     };
@@ -22,6 +22,7 @@ $(function(){
         timeText : "60.0",
         timeBox : $("#title-time"),
         gameOn : function (){
+            alert(123);
             /*图片数组*/var that = this;
             var cardArray = new Array(this.cardNum);
             for(var i=0; i<cardArray.length; i++){
