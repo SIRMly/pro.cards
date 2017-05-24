@@ -7,6 +7,14 @@ $(function(){
     document.ontouchmove = function (e){
         e.preventDefault();
     };
+    var startBtn = $("#start-btn");
+    var againBtn = $("#again-btn");
+    startBtn.on(click, function () {
+        game.init();
+    });
+    againBtn.on(click, function () {
+        game.init();
+    });
     var game = {
         init : function () {
             $("#crashes,#crashes>div").addClass("hide");
@@ -63,9 +71,7 @@ $(function(){
                         game.failArr[1].removeClass("trans");
                         game.failArr = [];
                     }
-                    console.log(game.eachNum);
                     if(game.eachNum === 0){
-                        console.log("eachnum0");
                         game.presentNum = $(this).attr("data-num");
                         game.card1 = $(this);
                         game.eachNum = 1;
@@ -73,8 +79,6 @@ $(function(){
                         game.card2 = $(this);
                         if($(this).attr("data-num") == game.presentNum){
                             game.successNum++;
-                            console.log("eachnum1");
-                            console.log(game.successNum);
                             if(game.successNum==game.doubleNum){
                                 clearInterval(game.timer);
                                 $("#crashes,#restart-crash").removeClass("hide");
@@ -104,14 +108,7 @@ $(function(){
             },100)
         }
     };
-    var startBtn = $("#start-btn");
-    var againBtn = $("#again-btn");
-    startBtn.on(click, function () {
-        game.init();
-    });
-    againBtn.on(click, function () {
-        game.init();
-    });
+
 
 
 });
