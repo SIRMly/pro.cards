@@ -73,8 +73,10 @@ $(function(){
                     }
                 }else{
                     setTimeout(function (){
-                        game.card1.css("transform","rotateY(0deg)");
-                        game.card2.css("transform","rotateY(0deg)");
+                        game.cardT1 = game.card1;
+                        game.cardT2 = game.card2;
+                        game.cardT1.css("transform","rotateY(0deg)");
+                        game.cardT2.css("transform","rotateY(0deg)");
                         //game.card1.removeClass("trans");
                         //game.card2.removeClass("trans");
                     },200);
