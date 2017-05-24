@@ -7,6 +7,48 @@ $(function(){
     document.ontouchmove = function (e){
         e.preventDefault();
     };
+    var imgs = [
+        "img/0.jpg",
+        "img/1.jpg",
+        "img/2.jpg",
+        "img/3.jpg",
+        "img/4.jpg",
+        "img/5.jpg",
+        "img/6.jpg",
+        "img/7.jpg",
+        "img/8.jpg",
+        "img/9.jpg"
+    ];
+    var proBox = $("#progress");
+    preload(imgs,proBox);
+    function preload(imgs,proBox){
+        var progress = 0,
+            proNum   = 0,
+            count    = imgs.length;
+        for(var i in imgs){
+            var newImg = new Image();
+            newImg.src = imgs[i];
+            console.log( newImg.src);
+            newImg.onload = function (){
+                proNum++;
+                progress = Math.floor(proNum/count)*100;
+                if(proNum>=count){
+                    progress = 100;
+                    proBox.addClass("hide");
+                    $("#container").removeClass("hide");
+                }
+                proBox.html(progress+"%");
+            }
+        }
+    }
+
+
+
+
+
+
+
+
     var startBtn = $("#start-btn");
     var againBtn = $("#again-btn");
     startBtn.on(click, function () {
