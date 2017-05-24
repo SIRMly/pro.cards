@@ -46,7 +46,10 @@ $(function(){
             cardArray.sort(this.numberRandom);
             /*添加图片*/
             for(var i=0; i<cardArray.length; i++){
-                this.cards.eq(i).css("background","url('img/"+ cardArray[i] +".png') no-repeat center center");
+                this.cards.eq(i).css({
+                    "background" : "url('img/"+ cardArray[i] +".jpg') center center  no-repeat ",
+                    "background-size" : "contain"
+                });
                 this.pics.eq(i).attr("data-num",cardArray[i]);
             }
             console.log(cardArray);
@@ -54,7 +57,7 @@ $(function(){
             setTimeout(function (){
                 game.pics.removeClass("trans");
                 game.play();
-            },1000);
+            },2000);
 
         },
         numberRandom : function (){
