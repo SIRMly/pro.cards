@@ -22,8 +22,6 @@ $(function(){
         timeText : "60.0",
         timeBox : $("#title-time"),
         failArr: [],
-        card1:[],
-        card2 : [],
         gameOn : function (){
             /*图片数组*/var that = this;
             var cardArray = new Array(this.cardNum);
@@ -51,10 +49,10 @@ $(function(){
                     }
                     if(game.eachNum == 0){
                         game.presentNum = $(this).attr("data-num");
-                        game.card1[index] = index;
+                        game.card1 = $(this);
                         game.eachNum++;
                     }else{
-                        game.card2[index] = index;
+                        game.card2 = $(this);
                         if($(this).attr("data-num") == game.presentNum){
                             game.successNum++;
                             if(game.successNum==game.doubleNum){
