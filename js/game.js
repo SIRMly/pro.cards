@@ -140,7 +140,7 @@ $(function(){
                                     $("#game-center").addClass("hide");
                                     $("#crashes,#restart-crash").removeClass("hide");
                                     $("#success").text("挑战成功!");
-                                    $("#using-time").text("用时： "+Math.floor((600-game.time)/10)+"."+Math.floor((600-game.time)%10)+"s");
+                                    $("#using-time").text("用时： "+((600-game.time)/10)+"s");
                                 },500);
                             }
                         }else{
