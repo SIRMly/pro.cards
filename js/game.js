@@ -85,6 +85,7 @@ $(function(){
             }
             /*===打乱==*/
             cardArray.sort(this.numberRandom);
+            console.log(cardArray);
             /*==添加图片==*/
             for(var i=0; i<cardArray.length; i++){
                 this.cards.eq(i).css({
@@ -135,10 +136,12 @@ $(function(){
                             game.successNum++;
                             if(game.successNum==game.doubleNum){
                                 clearInterval(game.timer);
-                                $("#game-center").addClass("hide");
-                                $("#crashes,#restart-crash").removeClass("hide");
-                                $("#success").text("挑战成功!")
-                                $("#using-time").text("用时： "+Math.floor((600-game.time)/10)+"s");
+                                setTimeout(function (){
+                                    $("#game-center").addClass("hide");
+                                    $("#crashes,#restart-crash").removeClass("hide");
+                                    $("#success").text("挑战成功!");
+                                    $("#using-time").text("用时： "+Math.floor((600-game.time)/10)+"s");
+                                },500);
                             }
                         }else{
                             game.failArr[0] = game.card1;
