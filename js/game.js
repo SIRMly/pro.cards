@@ -41,21 +41,23 @@ $(function(){
             }
         }
     }
-
-
-
-
-
-
-
-
     var startBtn = $("#start-btn");
     var againBtn = $("#again-btn");
+    var rankBtn  = $("#rank-btn");
+    var rankClose  = $("#rank-close");
     startBtn.on(click, function () {
         game.init();
     });
     againBtn.on(click, function () {
+        $(".card").removeClass("cardRotate");
+        $(".card").removeClass("cardRotateBack");
         game.init();
+    });
+    rankBtn.on("click", function (){
+       $("#rank").removeClass("hide");
+    });
+    rankClose.on("click", function (){
+       $("#rank").addClass("hide");
     });
     var game = {
         init : function () {
@@ -65,28 +67,25 @@ $(function(){
             this.eachNum = 0;
             this.successNum = 0;
             this.time = 600;
-            this.timeText = "60.0";
+            this.timeText = "60.0s";
             this.gameOn();
+            this.timeBox.html(this.timeText);
         },
         cardNum : 20,
         doubleNum : 10,
-        eachNum : 0,
-        successNum : 0,
         cards : $(".card"),
         pics : $(".pic"),
-        time : 600,
-        timeText : "60.0",
         timeBox : $("#title-time"),
         failArr: [],
         gameOn : function (){
-            /*图片数组*/var that = this;
+            /*==图片数组==*/var that = this;
             var cardArray = new Array(this.cardNum);
             for(var i=0; i<cardArray.length; i++){
                 cardArray[i] = Math.floor(i/2);
             }
-            /*打乱*/
+            /*===打乱==*/
             cardArray.sort(this.numberRandom);
-            /*添加图片*/
+            /*==添加图片==*/
             for(var i=0; i<cardArray.length; i++){
                 this.cards.eq(i).css({
                     "background" : "url('img/"+ cardArray[i] +".jpg') center center  no-repeat ",
@@ -94,9 +93,11 @@ $(function(){
                 });
                 this.pics.eq(i).attr("data-num",cardArray[i]);
             }
-            console.log(cardArray);
+            /*==图片添加完成==*/
             $("#crashes,#crashes>div").addClass("hide");
             $("#game-center").removeClass("hide");
+
+            this.cards.addClass("cardRotate");
             this.pics.addClass("trans");
             setTimeout(function (){
                 game.pics.removeClass("trans");
@@ -109,11 +110,12 @@ $(function(){
         },
         play : function (){
             this.timeStart();
-            /*绑定点击函数*/
+            /*==绑定点击函数==*/
             $.each(this.pics, function (){
                 $(this).on(click, function (){
                     $(this).addClass("trans");
                     if(game.failArr.length>0){
+                        /*==之前不对的转过去==*/
                         game.failArr[0].removeClass("trans");
                         game.failArr[1].removeClass("trans");
                         game.failArr = [];
@@ -121,15 +123,21 @@ $(function(){
                     if(game.eachNum === 0){
                         game.presentNum = $(this).attr("data-num");
                         game.card1 = $(this);
+                        game.box1 = $(this).parent();
                         game.eachNum = 1;
                     }else{
                         game.card2 = $(this);
+                        game.box2 = $(this).parent();
                         if($(this).attr("data-num") == game.presentNum){
+                            /*==成功一对==*/
+                            game.box1.addClass("cardRotateBack");
+                            game.box2.addClass("cardRotateBack");
                             game.successNum++;
                             if(game.successNum==game.doubleNum){
                                 clearInterval(game.timer);
                                 $("#game-center").addClass("hide");
                                 $("#crashes,#restart-crash").removeClass("hide");
+                                $("#success").text("挑战成功!")
                                 $("#using-time").text("用时： "+Math.floor((600-game.time)/10)+"s");
                             }
                         }else{
@@ -151,6 +159,7 @@ $(function(){
                 } else{
                     clearInterval(game.timer);
                     $("#game-center").addClass("hide");
+                    $("#success").text("挑战失败!");
                     $("#using-time").text("已超时！");
                     $("#crashes,#restart-crash").removeClass("hide");
                 }
