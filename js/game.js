@@ -71,8 +71,8 @@ $(function(){
             this.gameOn();
             this.timeBox.html(this.timeText);
         },
-        cardNum : 20,
-        doubleNum : 10,
+        cardNum : 16,
+        doubleNum : 8,
         cards : $(".card"),
         pics : $(".pic"),
         timeBox : $("#title-time"),

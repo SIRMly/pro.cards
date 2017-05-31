@@ -11,9 +11,9 @@ html{
 #start-btn{font-size: 20px;font-weight: bold; width: 25%; text-align: center; margin: 100% auto 0;  color: #fff; line-height: 40px; background-color: #ff801b; border-radius: 5px;}
 #game-center{width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 10; }
 #title-time{height: 80px; line-height: 90px; text-align: center;}
-#main{width: calc(72vw + 32px); margin: auto;}
-.row{display: flex; margin: 8px 0;}
-.box{width: 18vw; height: 18vw;  margin: 0 4px; }
+#main{width: calc(80vw + 32px); margin: auto;}
+.row{display: flex; margin: 15px 0;}
+.box{width: 20vw; height: 20vw;  margin: 0 4px; }
 .card{width: 100%; height: 100%; margin: auto;}
 .cardRotate{
     -webkit-animation: cardRotate 0.4s ease 0s 1 forwards;
