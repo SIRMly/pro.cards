@@ -4,9 +4,9 @@
 
 $(function(){
     var click = "ontouchstart" in document.documentElement ? "touchstart" : "click";
-    document.ontouchmove = function (e){
-        e.preventDefault();
-    };
+    //document.ontouchmove = function (e){
+    //    e.preventDefault();
+    //};
     var imgs = [
         "img/0.jpg",
         "img/1.jpg",
